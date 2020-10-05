@@ -64,11 +64,13 @@ ENV J -J
 #ok now that we have the requirements let try getting metalwalls
 #also expects a config.mk file, but since we're setting env variables let's try to fake it
 RUN \
-    wget https://gitlab.com/ampere2/metalwalls/-/archive/release/metalwalls-release.tar.gz && \
-    tar xvzf metalwalls-release.tar.gz && \
-    cd metalwalls-release && \
+    wget "https://gitlab.com/api/v4/projects/21583844/repository/archive.tar.gz?sha=b03136bc345449b848a6a77fda8949445d6076b2" && \
+	tar -xzf archive.tar.gz\?sha\=b03136bc345449b848a6a77fda8949445d6076b2 && \
+	rm archive.tar.gz\?sha\=b03136bc345449b848a6a77fda8949445d6076b2 && \
+	mv metalwalls-* metalwalls-custom && \
+	cd metalwalls-custom && \
     > config.mk && \
     make -j 4 python && \
     echo $(pwd)
 
-ENV PYTHONPATH "${PYTHONPATH}:/srv/metalwalls-release/build/python"
+ENV PYTHONPATH "${PYTHONPATH}:/srv/metalwalls-custom/build/python"
