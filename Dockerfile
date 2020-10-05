@@ -68,5 +68,7 @@ RUN \
     tar xvzf metalwalls-release.tar.gz && \
     cd metalwalls-release && \
     > config.mk && \
-    make -j 4 python
+    make -j 4 python && \
+    echo $(pwd)
 
+ENV PYTHONPATH "${PYTHONPATH}:/srv/metalwalls-release/build/python"
