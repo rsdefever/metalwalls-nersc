@@ -64,9 +64,9 @@ ENV J -J
 #ok now that we have the requirements let try getting metalwalls
 #also expects a config.mk file, but since we're setting env variables let's try to fake it
 RUN \
-    wget "https://gitlab.com/api/v4/projects/21583844/repository/archive.tar.gz?sha=b03136bc345449b848a6a77fda8949445d6076b2" && \
-	tar -xzf archive.tar.gz\?sha\=b03136bc345449b848a6a77fda8949445d6076b2 && \
-	rm archive.tar.gz\?sha\=b03136bc345449b848a6a77fda8949445d6076b2 && \
+    wget "https://gitlab.com/api/v4/projects/21583844/repository/archive.tar.gz?sha=c3c1969792e4673094dcba0396bb5cedaf4a6449" && \
+	tar -xzf archive.tar.gz\?sha\=c3c1969792e4673094dcba0396bb5cedaf4a6449 && \
+	rm archive.tar.gz\?sha\=c3c1969792e4673094dcba0396bb5cedaf4a6449 && \
 	mv metalwalls-* metalwalls-custom && \
 	cd metalwalls-custom && \
     > config.mk && \
